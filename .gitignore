@@ -1,2 +1,6 @@
 /node_modules
 content.md
+/dist
+/*.js
+/*.js.map
+style-decisions.md
