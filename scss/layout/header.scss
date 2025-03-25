@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  background-color: var(--color-primary-light);
+  justify-content: space-between;
+  padding: 3.2rem;
+
+  &__nav-list {
+    list-style-type: none;
+    display: flex;
+    column-gap: 1.6rem;
+
+    & > li {
+      transition: all 100ms;
+
+      &:hover {
+        transform: scale(105%);
+      }
+
+      & > a {
+        text-decoration: none;
+        font-size: 2rem;
+        color: var(--grey-primary);
+      }
+    }
+  }
+}

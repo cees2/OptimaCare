@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100&display=swap");
+
 *,
 *::before,
 *::after {
@@ -9,7 +11,7 @@
 html {
   font-size: 62.5%;
   --color-primary: #008080;
-  --color-primary-light: #5ad6d6;
+  --color-primary-light: #339999;
   --color-primary-dark: #0b7676;
 
   --grey-primary: #2a2a2a;
@@ -18,5 +20,6 @@ html {
 body {
   font-weight: 400;
   line-height: 1.5;
-  color: var(--grey-primary)
+  color: var(--grey-primary);
+  font-family: "Lato", sans-serif;
 }
