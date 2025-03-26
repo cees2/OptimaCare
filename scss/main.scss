@@ -2,7 +2,11 @@
 @use "base/_typography";
 @use "base/_utilities";
 
-@use "layout/header.scss";
+@use "pages/header";
+@use "pages/hero";
+@use "pages/main";
+
+@use "components/button";
 
 @use "abstracts/_mixins";
 @use "abstracts/_variables";

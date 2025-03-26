@@ -1,0 +1,61 @@
+.hero {
+  display: flex;
+
+  &__content {
+    flex: 1;
+    padding: 3.2rem;
+  }
+
+  &__img {
+    flex-basis: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__image {
+      width: 100%;
+    }
+  }
+
+  &__description {
+    margin-top: 6.4rem;
+    font-size: 2.4rem;
+  }
+
+  &__buttons {
+    margin-top: 4.8rem;
+    display: flex;
+    column-gap: 0.8rem;
+  }
+
+  &__patients {
+    display: flex;
+    align-items: center;
+    margin-top: 6.4rem;
+    column-gap: 3.2rem;
+  }
+
+  &__patients-imgs > img {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: -1.2rem;
+    background-color: var(--color-primary-light);
+    padding: 3px;
+    transition: all var(--transition-duration-default);
+
+    &:hover {
+      transform: scale(105%);
+    }
+  }
+
+  &__patients-text {
+    font-size: 2rem;
+    font-weight: var(--font-weight-semi-bold);
+
+    & > span {
+      color: var(--color-primary-light);
+    }
+  }
+}

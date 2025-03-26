@@ -13,6 +13,16 @@ html {
   --color-primary-light: #339999;
   --color-primary-dark: #0b7676;
   --grey-primary: #2a2a2a;
+  --line-height-large: 1.5;
+  --line-height-small: 1.1;
+  --font-weight-default: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --border-radius-small: 0.6rem;
+  --border-radius-medium: 1rem;
+  --transition-duration-default: 150ms;
+  --transition-duration-semi-long: 250ms;
 }
 
 body {
@@ -20,6 +30,16 @@ body {
   line-height: 1.5;
   color: var(--grey-primary);
   font-family: "Lato", sans-serif;
+}
+
+.heading--primary {
+  font-size: 6.2rem;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-small);
+}
+
+.mb-large {
+  margin-bottom: 6.4rem;
 }
 
 .header {
@@ -43,6 +63,90 @@ body {
   text-decoration: none;
   font-size: 2rem;
   color: var(--grey-primary);
+}
+
+.hero {
+  display: flex;
+}
+.hero__content {
+  flex: 1;
+  padding: 3.2rem;
+}
+.hero__img {
+  flex-basis: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__img__image {
+  width: 100%;
+}
+.hero__description {
+  margin-top: 6.4rem;
+  font-size: 2.4rem;
+}
+.hero__buttons {
+  margin-top: 4.8rem;
+  display: flex;
+  column-gap: 0.8rem;
+}
+.hero__patients {
+  display: flex;
+  align-items: center;
+  margin-top: 6.4rem;
+  column-gap: 3.2rem;
+}
+.hero__patients-imgs > img {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: -1.2rem;
+  background-color: var(--color-primary-light);
+  padding: 3px;
+  transition: all var(--transition-duration-default);
+}
+.hero__patients-imgs > img:hover {
+  transform: scale(105%);
+}
+.hero__patients-text {
+  font-size: 2rem;
+  font-weight: var(--font-weight-semi-bold);
+}
+.hero__patients-text > span {
+  color: var(--color-primary-light);
+}
+
+.main {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+.btn {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-semi-bold);
+  padding: 1.2rem 2.4rem;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: var(--border-radius-small);
+  border: none;
+  transition: all Var(--transition-duration-semi-long);
+}
+.btn, .btn:link, .btn:visited {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+.btn:hover, .btn:active {
+  cursor: pointer;
+  background-color: var(--color-primary-light);
+}
+.btn--light, .btn--light:link, .btn--light:visited {
+  background-color: #fff;
+  color: var(--color-primary-light);
+}
+.btn--light:hover, .btn--light:active {
+  background-color: var(--color-primary);
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

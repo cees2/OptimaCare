@@ -1,0 +1,36 @@
+.btn {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-semi-bold);
+  padding: 1.2rem 2.4rem;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: var(--border-radius-small);
+  border: none;
+  transition: all Var(--transition-duration-semi-long);
+
+  &,
+  &:link,
+  &:visited {
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+    background-color: var(--color-primary-light);
+  }
+
+  &--light,
+  &--light:link,
+  &--light:visited {
+    background-color: #fff;
+    color: var(--color-primary-light);
+  }
+
+  &--light:hover,
+  &--light:active {
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+}
