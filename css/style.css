@@ -23,6 +23,8 @@ html {
   --border-radius-medium: 1rem;
   --transition-duration-default: 150ms;
   --transition-duration-semi-long: 250ms;
+  --animation-duration-default: 400ms;
+  --animation-duration-slow: 600ms;
 }
 
 body {
@@ -43,6 +45,16 @@ body {
   margin-bottom: 6.4rem;
 }
 
+@keyframes buttons-header {
+  from {
+    transform: translateY(4rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .header {
   display: flex;
   background-color: var(--color-primary-light);
@@ -69,6 +81,20 @@ body {
 .hero {
   display: flex;
 }
+.hero__title {
+  animation: from-right-text-animation var(--animation-duration-slow) ease-out;
+}
+@keyframes from-right-text-animation {
+  0% {
+    transform: translateX(-5rem);
+  }
+  70% {
+    transform: translateX(2rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 .hero__content {
   flex: 1;
   padding: 3.2rem;
@@ -85,11 +111,24 @@ body {
 .hero__description {
   margin-top: 6.4rem;
   font-size: 2.4rem;
+  animation: from-left-text-animation var(--animation-duration-slow) ease-out;
+}
+@keyframes from-left-text-animation {
+  0% {
+    transform: translateX(5rem);
+  }
+  70% {
+    transform: translateX(-2rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 .hero__buttons {
   margin-top: 4.8rem;
   display: flex;
   column-gap: 0.8rem;
+  animation: buttons-header var(--animation-duration-slow) ease-out;
 }
 .hero__patients {
   display: flex;

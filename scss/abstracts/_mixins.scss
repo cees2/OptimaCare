@@ -1,0 +1,21 @@
+@mixin move-text-horizontally(
+  $animation-name,
+  $initial-position,
+  $mid-position,
+  $animation-duration: var(--animation-duration-slow),
+  $animation-timing-funtion: ease-out
+) {
+  @keyframes #{$animation-name}-text-animation {
+    0% {
+      transform: translateX($initial-position);
+    }
+    70% {
+      transform: translateX($mid-position);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  animation: #{$animation-name}-text-animation $animation-duration $animation-timing-funtion;
+}

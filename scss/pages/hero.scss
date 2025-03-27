@@ -1,5 +1,11 @@
+@import "../abstracts/mixins";
+
 .hero {
   display: flex;
+
+  &__title {
+    @include move-text-horizontally("from-right", -5rem, 2rem);
+  }
 
   &__content {
     flex: 1;
@@ -20,12 +26,14 @@
   &__description {
     margin-top: 6.4rem;
     font-size: 2.4rem;
+    @include move-text-horizontally("from-left", 5rem, -2rem);
   }
 
   &__buttons {
     margin-top: 4.8rem;
     display: flex;
     column-gap: 0.8rem;
+    animation: buttons-header var(--animation-duration-slow) ease-out;
   }
 
   &__patients {
