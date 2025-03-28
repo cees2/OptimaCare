@@ -1,0 +1,51 @@
+.about-us {
+  display: flex;
+  column-gap: 4.8rem;
+
+  &__images {
+    flex: 0 0 40%;
+    position: relative;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__image {
+    position: absolute;
+    width: 60%;
+    transition: all var(--transition-duration-default);
+
+    &--1 {
+      top: 1rem;
+      left: 1rem;
+      z-index: 1;
+    }
+
+    &--2 {
+      top: 3rem;
+      right: 1rem;
+      z-index: 2;
+    }
+
+    &--3 {
+      bottom: 0;
+      left: 20%;
+      z-index: 3;
+    }
+
+    &:hover {
+      z-index: 4;
+      border: 0.8rem solid var(--color-primary-light);
+      transform: scale(120%);
+      padding: 0.8rem;
+      border-radius: var(--border-radius-medium);
+    }
+  }
+
+  &__description {
+    margin-top: 2.4rem;
+    color: var(--grey-primary);
+    font-size: 1.8rem;
+  }
+}

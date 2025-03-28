@@ -1,7 +1,25 @@
+%headings {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-small);
+}
+
 .heading {
   &--primary {
     font-size: 6.2rem;
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-small);
+    @extend %headings;
   }
+
+  &--secondary {
+    font-size: 5.2rem;
+    @extend %headings;
+  }
+}
+
+.subheading {
+  color: var(--color-primary-light);
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-semi-bold);
+  margin-bottom: 1.2rem;
 }

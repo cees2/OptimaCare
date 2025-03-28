@@ -2,13 +2,16 @@
 @use "base/_typography";
 @use "base/_utilities";
 
-@use "abstracts/mixins";
+@use "abstracts/_mixins";
 @use "abstracts/_variables";
 @use "abstracts/_animations";
 
-@use "pages/header";
-@use "pages/hero";
-@use "pages/main";
+@use "layout/_content.scss";
 
-@use "components/button";
-@use "components/modal";
+@use "pages/_header";
+@use "pages/_hero";
+@use "pages/_main";
+@use "pages/_about-us";
+
+@use "components/_button";
+@use "components/_modal";
