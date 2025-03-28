@@ -1,0 +1,36 @@
+.featured-in {
+  display: flex;
+  column-gap: 6.4rem;
+
+  &__text {
+    font-size: 3rem;
+    flex: 0 0 25%;
+
+    > span {
+      color: var(--color-primary-dark);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__item:hover > &__image {
+    filter: grayscale(0) opacity(100%);
+  }
+
+  &__items {
+    display: flex;
+    column-gap: 2.4rem;
+  }
+
+  &__image {
+    height: 3.2rem;
+    filter: grayscale(100%) opacity(40%);
+    margin-bottom: 2.4rem;
+    transition: all var(--transition-duration-slow);
+  }
+}
