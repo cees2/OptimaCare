@@ -12,8 +12,8 @@ html {
   --color-primary: #008080;
   --color-primary-light: #339999;
   --color-primary-dark: #0b7676;
-  --grey-primary: #2a2a2a;
-  --grey-primary-light: #555555;
+  --gray-primary: #2a2a2a;
+  --gray-primary-light: #555555;
   --line-height-large: 1.5;
   --line-height-small: 1.1;
   --font-weight-default: 400;
@@ -33,7 +33,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-size: 1.6rem;
-  color: var(--grey-primary);
+  color: var(--gray-primary);
   font-family: "Lato", sans-serif;
 }
 
@@ -80,7 +80,7 @@ body {
   }
 }
 .content {
-  margin-top: 9.6rem;
+  margin-top: 12.6rem;
 }
 
 .header {
@@ -321,6 +321,78 @@ body {
   color: var(--gray-primary-light);
   opacity: 0.8;
   padding-right: 3.2rem;
+}
+
+.pricing {
+  display: flex;
+  align-items: stretch;
+  column-gap: 4.8rem;
+  color: var(--gray-primary);
+}
+.pricing__best-value {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-120%);
+}
+.pricing__card {
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  box-shadow: 0 0.2rem 2rem color-mix(in srgb, currentColor 30%, transparent);
+  border-radius: var(--border-radius-medium);
+  transition: all var(--transition-duration-semi-slow);
+}
+.pricing__card--best {
+  border: 2px solid color-mix(in srgb, var(--color-primary) 50%, transparent);
+  position: relative;
+}
+.pricing__card:hover {
+  transform: scale(102%) translateY(-2rem);
+}
+.pricing__description {
+  margin-bottom: 3.2rem;
+}
+.pricing__title {
+  margin-top: 1.2rem;
+  font-weight: var(--font-weight-medium);
+  font-size: 2.4rem;
+}
+.pricing__price {
+  font-size: 5.2rem;
+  display: inline-block;
+}
+.pricing__time {
+  font-size: 1.8rem;
+  display: inline-block;
+}
+.pricing__list {
+  margin-top: 1.6rem;
+  list-style-type: none;
+  flex: 1;
+}
+.pricing__list-item {
+  display: flex;
+  align-items: center;
+  column-gap: 1.2rem;
+}
+.pricing__list-item:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+.pricing__icon {
+  height: 1.6rem;
+  stroke: var(--color-primary);
+}
+.pricing__button {
+  width: 100%;
+  margin-top: 4.8rem;
+}
+.pricing__pricing-top-text {
+  margin-top: 1.2rem;
 }
 
 .btn {
