@@ -1,0 +1,66 @@
+@import "../abstracts/mixins";
+
+.carousel {
+  padding: 2.4rem 8rem;
+  position: relative;
+  display: flex;
+  overflow-x: hidden;
+
+  &__arrow {
+    &--left {
+      @include carousel-arrow("left");
+    }
+
+    &--right {
+      @include carousel-arrow("right");
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    column-gap: 1.2rem;
+  }
+
+  &__navigation-item {
+    width: 1.8rem;
+    height: 1.8rem;
+    border: 3px solid var(--color-primary);
+    border-radius: 50%;
+    position: relative;
+
+    &--active::after {
+      content: "";
+      display: block;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__items {
+    display: flex;
+    transition: all var(--transition-duration-semi-slow);
+  }
+
+  &__item {
+    visibility: hidden;
+    opacity: 0;
+    flex: 0 0 100%;
+    transition: all var(--transition-duration-semi-slow);
+
+    &--active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

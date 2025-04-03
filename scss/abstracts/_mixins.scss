@@ -19,3 +19,25 @@
 
   animation: #{$animation-name}-text-animation $animation-duration $animation-timing-funtion;
 }
+
+@mixin carousel-arrow($arrow-direction) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4.4rem;
+  transition: var(--transition-duration-default);
+  z-index: 5;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-50%) scale(110%);
+  }
+
+  @if ($arrow-direction == "left") {
+    left: 1rem;
+  }
+
+  @if ($arrow-direction == "right") {
+    right: 1rem;
+  }
+}
