@@ -3,7 +3,50 @@ enum ToggleNavItemMode {
   MAKE_ACTIVE,
 }
 
+interface CarouselElements {
+  carouselBox: HTMLDivElement;
+  carouselLeftArrow: HTMLElement | null;
+  carouselRightArrow: HTMLElement | null;
+  carouselItemsContainer: HTMLDivElement | null;
+  carouselNavigationContainer: HTMLDivElement | null;
+  carouselActiveItem: HTMLDivElement | null;
+  carouselActiveNavItem: HTMLDivElement | null;
+  navigationItems?: NodeListOf<HTMLDivElement>;
+}
+
 let activeCarouselElement: number = 0;
+
+const getCarouselParts = (carouselBox: HTMLDivElement): CarouselElements => {
+  const carouselLeftArrow: HTMLElement | null = carouselBox.querySelector(
+    ".carousel__arrow--left"
+  );
+  const carouselRightArrow: HTMLElement | null = carouselBox.querySelector(
+    ".carousel__arrow--right"
+  );
+  const carouselItemsContainer: HTMLDivElement | null =
+    carouselBox.querySelector(".carousel__items");
+  const carouselNavigationContainer: HTMLDivElement | null =
+    carouselBox.querySelector(".carousel__navigation");
+  const carouselActiveItem: HTMLDivElement | null = document.querySelector(
+    ".carousel__item--active"
+  );
+  const carouselActiveNavItem: HTMLDivElement | null = document.querySelector(
+    ".carousel__navigation-item--active"
+  );
+  const navigationItems: NodeListOf<HTMLDivElement> | undefined =
+    document.querySelectorAll(".carousel__navigation-item");
+
+  return {
+    carouselBox,
+    carouselLeftArrow,
+    carouselRightArrow,
+    carouselItemsContainer,
+    carouselNavigationContainer,
+    carouselActiveNavItem,
+    carouselActiveItem,
+    navigationItems,
+  };
+};
 
 const translateCarousel = (
   carouselItemsContainer: HTMLDivElement,
@@ -30,28 +73,38 @@ const toggleNavigationItem = (
 
 const carouselNavigationClickHandler = (
   event: MouseEvent,
-  carouselNavContainer: HTMLDivElement,
-  carouselItemsContainer: HTMLDivElement
+  carousel: HTMLDivElement
 ) => {
   if (!event || !(event.target instanceof HTMLDivElement)) return;
+
   const clickedNavItem: HTMLDivElement | null = event.target.closest(
     ".carousel__navigation-item"
   );
-  const activeNavElement: HTMLDivElement | null = document.querySelector(
-    ".carousel__navigation-item--active"
-  );
+  const {
+    carouselActiveNavItem,
+    carouselNavigationContainer,
+    carouselItemsContainer,
+  } = getCarouselParts(carousel);
   const previousActiveCarouselItem: HTMLDivElement | null =
     document.querySelector(".carousel__item--active");
 
-  if (!clickedNavItem || !activeNavElement || !previousActiveCarouselItem)
+  if (
+    !clickedNavItem ||
+    !carouselActiveNavItem ||
+    !previousActiveCarouselItem ||
+    !carouselNavigationContainer ||
+    !carouselItemsContainer
+  )
     return;
 
-  const navContainerChildrenArray = Array.from(carouselNavContainer.children);
+  const navContainerChildrenArray = Array.from(
+    carouselNavigationContainer.children
+  );
   activeCarouselElement = navContainerChildrenArray.indexOf(clickedNavItem);
   const currentActiveCarouselItem =
     carouselItemsContainer.children[activeCarouselElement];
 
-  activeNavElement.classList.remove("carousel__navigation-item--active");
+  carouselActiveNavItem.classList.remove("carousel__navigation-item--active");
   clickedNavItem.classList.add("carousel__navigation-item--active");
   translateCarousel(
     carouselItemsContainer,
@@ -60,38 +113,34 @@ const carouselNavigationClickHandler = (
   );
 };
 
-const carouselArrowClickHandler = (
-  carousel: HTMLDivElement,
-  activeCarouselElement: number
-) => {
-  const carouselItemsContainer: HTMLDivElement | null =
-    carousel.querySelector(".carousel__items");
-  const previousActiveCarouselItem: HTMLDivElement | undefined | null =
-    carouselItemsContainer?.querySelector(".carousel__item--active");
+const carouselArrowClickHandler = (carousel: HTMLDivElement) => {
+  const {
+    carouselItemsContainer,
+    carouselActiveNavItem: previousCarouselActiveNavItem,
+    navigationItems,
+  } = getCarouselParts(carousel);
   const currentActiveCarouselItem: Element | undefined =
     carouselItemsContainer?.children[activeCarouselElement];
-  const navigationItems: NodeListOf<HTMLDivElement> | null =
-    carousel.querySelectorAll(".carousel__navigation-item");
+
+  if (!navigationItems) return;
+
   const currentActiveNavigationItem = navigationItems[activeCarouselElement];
-  const previousActiveNavigationItem = carousel.querySelector(
-    ".carousel__navigation-item--active"
-  );
 
   if (
     !carouselItemsContainer ||
-    !previousActiveCarouselItem ||
+    !previousCarouselActiveNavItem ||
     !currentActiveCarouselItem
   )
     return;
 
   translateCarousel(
     carouselItemsContainer,
-    previousActiveCarouselItem,
+    previousCarouselActiveNavItem,
     currentActiveCarouselItem
   );
 
   toggleNavigationItem(
-    previousActiveNavigationItem,
+    previousCarouselActiveNavItem,
     ToggleNavItemMode.MAKE_REGULAR
   );
 
@@ -108,50 +157,44 @@ const carouselHandler = () => {
   if (!carousels) return;
 
   carousels.forEach((carousel) => {
-    const carouselItemContainer: HTMLDivElement | null =
-      carousel.querySelector(".carousel__items");
-    const carouselArrowLeft = carousel.querySelector(".carousel__arrow--left");
-    const carouselArrowRight = carousel.querySelector(
-      ".carousel__arrow--right"
-    );
-    const carouselNavigationContainer: HTMLDivElement | null =
-      carousel.querySelector(".carousel__navigation");
+    const {
+      carouselItemsContainer,
+      carouselLeftArrow,
+      carouselRightArrow,
+      carouselNavigationContainer,
+    } = getCarouselParts(carousel);
 
     if (
-      !carouselItemContainer ||
-      !carouselArrowLeft ||
-      !carouselArrowRight ||
+      !carouselItemsContainer ||
+      !carouselLeftArrow ||
+      !carouselRightArrow ||
       !carouselNavigationContainer
     )
       return;
 
     const {
       children: { length: numberOfItems },
-    } = carouselItemContainer;
+    } = carouselItemsContainer;
     const { children: navigationItems } = carouselNavigationContainer;
     const activeNavigationItem = navigationItems[activeCarouselElement];
 
-    carouselItemContainer.style.width = `${numberOfItems * 100}%`;
+    carouselItemsContainer.style.width = `${numberOfItems * 100}%`;
     toggleNavigationItem(activeNavigationItem, ToggleNavItemMode.MAKE_ACTIVE);
 
-    carouselArrowLeft.addEventListener("click", () => {
+    carouselLeftArrow.addEventListener("click", () => {
       activeCarouselElement--;
       if (activeCarouselElement < 0) activeCarouselElement = numberOfItems - 1;
-      carouselArrowClickHandler(carousel, activeCarouselElement);
+      carouselArrowClickHandler(carousel);
     });
 
-    carouselArrowRight.addEventListener("click", () => {
+    carouselRightArrow.addEventListener("click", () => {
       activeCarouselElement++;
       if (activeCarouselElement === numberOfItems) activeCarouselElement = 0;
-      carouselArrowClickHandler(carousel, activeCarouselElement);
+      carouselArrowClickHandler(carousel);
     });
 
     carouselNavigationContainer.addEventListener("click", (event: MouseEvent) =>
-      carouselNavigationClickHandler(
-        event,
-        carouselNavigationContainer,
-        carouselItemContainer
-      )
+      carouselNavigationClickHandler(event, carousel)
     );
   });
 };
