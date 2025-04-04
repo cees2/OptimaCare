@@ -32,6 +32,7 @@
     border: 3px solid var(--color-primary);
     border-radius: 50%;
     position: relative;
+    transition: all var(--transition-duration-default);
 
     &--active::after {
       content: "";
@@ -44,6 +45,11 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(115%);
     }
   }
 
