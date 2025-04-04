@@ -84,9 +84,8 @@ const carouselNavigationClickHandler = (
     carouselActiveNavItem,
     carouselNavigationContainer,
     carouselItemsContainer,
+    carouselActiveItem: previousActiveCarouselItem,
   } = getCarouselParts(carousel);
-  const previousActiveCarouselItem: HTMLDivElement | null =
-    document.querySelector(".carousel__item--active");
 
   if (
     !clickedNavItem ||
@@ -117,6 +116,7 @@ const carouselArrowClickHandler = (carousel: HTMLDivElement) => {
   const {
     carouselItemsContainer,
     carouselActiveNavItem: previousCarouselActiveNavItem,
+    carouselActiveItem: previousCarouselActiveItem,
     navigationItems,
   } = getCarouselParts(carousel);
   const currentActiveCarouselItem: Element | undefined =
@@ -129,13 +129,13 @@ const carouselArrowClickHandler = (carousel: HTMLDivElement) => {
   if (
     !carouselItemsContainer ||
     !previousCarouselActiveNavItem ||
-    !currentActiveCarouselItem
+    !currentActiveCarouselItem || !previousCarouselActiveItem
   )
     return;
 
   translateCarousel(
     carouselItemsContainer,
-    previousCarouselActiveNavItem,
+    previousCarouselActiveItem,
     currentActiveCarouselItem
   );
 
