@@ -6,7 +6,11 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "dist",
+    "outDir": "dist"
   },
-  "include": ["scripts/index.ts", "scripts/carousel.ts"]
+  "include": [
+    "scripts/servicesSection.ts",
+    "scripts/carousel.ts",
+    "scripts/navigation.ts"
+  ]
 }

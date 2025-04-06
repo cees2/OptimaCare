@@ -1,0 +1,27 @@
+%nav-item-action {
+  color: var(--color-primary-dark);
+  border-bottom: 3px solid var(--color-primary-dark);
+}
+
+.navigation {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__item {
+    padding-bottom: 1.2rem;
+    transition: all var(--transition-duration-default);
+
+    &:hover {
+      @extend %nav-item-action;
+      padding-bottom: calc(1.2rem - 3px);
+      cursor: pointer;
+    }
+
+    &--active {
+      @extend %nav-item-action;
+      padding-bottom: calc(1.2rem - 3px);
+    }
+  }
+}

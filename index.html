@@ -8,8 +8,9 @@
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
     />
-    <script defer src="dist/index.js"></script>
+    <script defer src="dist/servicesSection.js"></script>
     <script defer src="dist/carousel.js"></script>
+    <script defer src="dist/navigation.js"></script>
     <title>OptimaCare</title>
   </head>
   <body>
@@ -146,24 +147,15 @@
         </div>
       </section>
       <section class="services content">
-        <ul class="services__nav" role="tabList">
-          <li
-            class="services__nav-item services__nav-item--active"
-            data-nav-item="0"
-          >
+        <ul class="navigation services__nav" role="tabList">
+          <li class="navigation__item navigation__item--active">
             General Consultations
           </li>
-          <li class="services__nav-item" data-nav-item="1">
-            Specialized Treatments
-          </li>
-          <li class="services__nav-item" data-nav-item="2">Preventive Care</li>
-          <li class="services__nav-item" data-nav-item="3">Telemedicine</li>
-          <li class="services__nav-item" data-nav-item="4">
-            Same-day & Next-day Appointments
-          </li>
-          <li class="services__nav-item" data-nav-item="5">
-            Corporate Healthcare Plans
-          </li>
+          <li class="navigation__item">Specialized Treatments</li>
+          <li class="navigation__item">Preventive Care</li>
+          <li class="navigation__item">Telemedicine</li>
+          <li class="navigation__item">Same-day & Next-day Appointments</li>
+          <li class="navigation__item">Corporate Healthcare Plans</li>
         </ul>
         <div class="services__content">
           <div class="services__content-item services__content--active">
@@ -631,6 +623,7 @@
           </div>
         </div>
       </section>
+      <section class="cta"></section>
     </main>
     <div class="modal">
       <div class="modal__window">
