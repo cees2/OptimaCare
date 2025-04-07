@@ -23,5 +23,10 @@
       @extend %nav-item-action;
       padding-bottom: calc(1.2rem - 3px);
     }
+
+    > a {
+      text-decoration: none;
+      
+    }
   }
 }

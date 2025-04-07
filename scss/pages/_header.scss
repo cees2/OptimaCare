@@ -11,6 +11,7 @@
 
     & > li {
       transition: all 100ms;
+      column-gap: 1.6rem;
 
       &:hover {
         transform: scale(105%);

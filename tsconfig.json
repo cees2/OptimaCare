@@ -11,6 +11,7 @@
   "include": [
     "scripts/servicesSection.ts",
     "scripts/carousel.ts",
-    "scripts/navigation.ts"
+    "scripts/navigation.ts",
+    "scripts/cta.ts"
   ]
 }

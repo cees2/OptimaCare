@@ -11,6 +11,7 @@
     <script defer src="dist/servicesSection.js"></script>
     <script defer src="dist/carousel.js"></script>
     <script defer src="dist/navigation.js"></script>
+    <script defer src="dist/cta.js"></script>
     <title>OptimaCare</title>
   </head>
   <body>
@@ -21,12 +22,14 @@
         class="header__logo"
       />
       <nav>
-        <ul class="header__nav-list">
-          <li><a href="#about-us">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <ul class="header__nav-list navigation">
+          <li class="navigation__item"><a href="#about-us">About Us</a></li>
+          <li class="navigation__item"><a href="#services">Services</a></li>
+          <li class="navigation__item"><a href="#pricing">Pricing</a></li>
+          <li class="navigation__item">
+            <a href="#testimonials">Testimonials</a>
+          </li>
+          <li class="navigation__item"><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </hedaer>
@@ -623,7 +626,203 @@
           </div>
         </div>
       </section>
-      <section class="cta"></section>
+      <section class="cta content">
+        <div class="cta__nav-and-content">
+          <ul class="navigation">
+            <li class="navigation__item navigation__item--active">
+              Find out more details about services
+            </li>
+            <li class="navigation__item">
+              Make an appointment without a memebership
+            </li>
+          </ul>
+          <div class="cta__item cta__item--active">
+            <p class="cta__action-description">
+              You can set an appointment with any of our specialist without a
+              membership. Just pick a date, and the doctor will provide further
+              instructions during the appointment. Our tech support will also be
+              happy to help.
+            </p>
+            <form class="form form__grid" action="#">
+              <div class="form__item">
+                <input
+                  class="form__input"
+                  id="services-details-name"
+                  placeholder="Name"
+                />
+                <label
+                  for="services-details-name"
+                  class="form__label form__label--movable"
+                  >Name</label
+                >
+              </div>
+              <div class="form__item">
+                <input
+                  type="email"
+                  class="form__input"
+                  id="services-details-email"
+                  placeholder="Email"
+                />
+                <label
+                  for="services-details-email"
+                  class="form__label form__label--movable"
+                  >Email</label
+                >
+              </div>
+              <div class="form__item">
+                <input
+                  type="number"
+                  class="form__input"
+                  id="services-details-phone"
+                  placeholder="Phone number"
+                  max="999999999"
+                  min="0"
+                />
+                <label
+                  for="services-details-phone"
+                  class="form__label form__label--movable"
+                  >Phone number</label
+                >
+              </div>
+              <div class="form__item">
+                <label
+                  for="area-of-interest"
+                  class="form__label form__label--visible"
+                  >Area of interest</label
+                >
+                <select class="form__select-input" id="area-of-interest">
+                  <option value="general_consultation">
+                    General Consultation
+                  </option>
+                  <option value="mental_health">Mental Health</option>
+                  <option value="supplements">Supplements</option>
+                  <option value="physical_therapy">Physical Therapy</option>
+                </select>
+              </div>
+              <fieldset class="form__fieldset">
+                <legend class="form__legend">
+                  Choose your preferred contact method
+                </legend>
+                <div class="form__item">
+                  <input
+                    type="radio"
+                    class="form__radio-input"
+                    id="services-details-email-radio"
+                    name="contact"
+                    value="email_radio"
+                  />
+                  <label for="services-details-email-radio" class="form__label"
+                    >Email</label
+                  >
+                </div>
+                <div class="form__item">
+                  <input
+                    type="radio"
+                    class="form__radio-input"
+                    id="services-details-phone-radio"
+                    name="contact"
+                    value="email_radio"
+                  />
+                  <label for="services-details-phone-radio" class="form__label"
+                    >Phone</label
+                  >
+                </div>
+                <div class="form__item">
+                  <input
+                    type="radio"
+                    class="form__radio-input"
+                    id="services-details-no-preference"
+                    name="contact"
+                    value="email_radio"
+                  />
+                  <label
+                    for="services-details-no-preference"
+                    class="form__label"
+                    >No preference</label
+                  >
+                </div>
+              </fieldset>
+              <div class="form__item">
+                <label for="message" class="form__label">Message</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  class="form__textarea"
+                  rows="4"
+                ></textarea>
+              </div>
+              <button class="btn">Send &rarr;</button>
+            </form>
+          </div>
+          <div class="cta__item">
+            <p class="cta__action-description">
+              Fill in the following form and click 'Send.' Our specialist will
+              receive a notification and try to contact you as soon as possible.
+            </p>
+            <form class="form form__grid">
+              <div class="form__item">
+                <input
+                  class="form__input"
+                  id="appointment-name"
+                  placeholder="Name"
+                />
+                <label
+                  for="appointment-name"
+                  class="form__label form__label--movable"
+                  >Name</label
+                >
+              </div>
+              <div class="form__item">
+                <input
+                  type="email"
+                  class="form__input"
+                  id="appointment-email"
+                  placeholder="Email"
+                />
+                <label
+                  for="appointment-email"
+                  class="form__label form__label--movable"
+                  >Email</label
+                >
+              </div>
+              <div class="form__item">
+                <input
+                  type="number"
+                  class="form__input"
+                  id="appointment-phone"
+                  placeholder="Phone number"
+                />
+                <label
+                  for="appointment-phone"
+                  class="form__label form__label--movable"
+                  >Phone number</label
+                >
+              </div>
+              <div class="form__item">
+                <input type="date" class="form__input" id="appointment-date" />
+                <label
+                  for="appointment-date"
+                  class="form__label form__label--visible"
+                  >Appointment date</label
+                >
+              </div>
+              <div class="form__item">
+                <select class="form__select-input" id="appointment-time-slot">
+                  <option value="morning">Morning (8am–12pm)</option>
+                  <option value="afternoon">Afternoon (12pm–4pm)</option>
+                  <option value="evening">Evening (4pm–8pm)</option>
+                </select>
+                <label
+                  for="appointment-time-slot"
+                  class="form__label form__label--visible"
+                  >Area of interest</label
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+        <img src="img/cta-image.jpg" alt="Stethoscope" class="cta__img" />
+      </section>
     </main>
     <div class="modal">
       <div class="modal__window">

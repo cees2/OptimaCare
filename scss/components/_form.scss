@@ -1,0 +1,89 @@
+.form {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    column-gap: 6.4rem;
+    row-gap: 3.2rem;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__label {
+    font-size: 1.4rem;
+    color: var(--gray-light);
+    transition: all var(--transition-duration-default);
+
+    &--movable,
+    &--visible {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &--movable {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &--visible {
+      transform: translateY(-120%);
+    }
+  }
+
+  &__input,
+  &__textarea,
+  &__select,
+  &__select-input {
+    width: 100%;
+    padding: 0.8rem 1.6rem 0.8rem 0.8rem;
+    border-radius: var(--border-radius-small);
+    outline: none;
+    font-size: 1.4rem;
+    color: color-mix(in srgb, var(--gray-primary) 70%, transparent);
+  }
+
+  &__input {
+    border: 1px solid color-mix(in srgb, var(--gray-primary) 40%, transparent);
+    border-bottom: 3px solid
+      color-mix(in srgb, var(--gray-primary) 40%, transparent);
+
+    &:focus:invalid {
+      border-bottom: 3px solid red;
+    }
+  }
+
+  &__input:focus {
+    border-bottom: 3px solid var(--gray-primary);
+
+    ~ .form__label--movable {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(-120%);
+    }
+
+    &::placeholder {
+      visibility: hidden;
+    }
+  }
+
+  &__fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__legend {
+    margin: 0.8rem 0 1.6rem;
+  }
+
+  &__radio-input {
+    margin-right: 0.8rem;
+  }
+
+  &__textarea {
+    resize: none;
+    font-family: inherit;
+  }
+}

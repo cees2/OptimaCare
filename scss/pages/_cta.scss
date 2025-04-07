@@ -1,0 +1,41 @@
+.cta {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 6.4rem;
+  border-radius: var(--border-radius-medium);
+  margin-bottom: 80rem;
+  border: 1px solid black;
+
+  &__img {
+    object-fit: cover;
+    width: 30%;
+    border-top-right-radius: var(--border-radius-medium);
+    border-bottom-right-radius: var(--border-radius-medium);
+  }
+
+  &__nav-and-content {
+    flex: 1 1 auto;
+  }
+
+  &__item {
+    display: none;
+  }
+
+  &__item--active {
+    display: block;
+  }
+
+  &__action-description {
+    margin-top: 3.6rem;
+    color: var(--gray-primary);
+  }
+
+  .navigation {
+    justify-content: flex-start;
+    column-gap: 3.2rem;
+  }
+
+  .form {
+    margin-top: 3.2rem;
+  }
+}
