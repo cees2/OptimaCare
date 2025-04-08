@@ -1,25 +1,22 @@
 .header {
   display: flex;
-  background-color: var(--color-primary-light);
   justify-content: space-between;
-  padding: 3.2rem;
+  padding: 1.6rem 3.2rem;
 
   &__nav-list {
     list-style-type: none;
     display: flex;
     column-gap: 1.6rem;
+    align-items: center;
 
     & > li {
-      transition: all 100ms;
-      column-gap: 1.6rem;
-
       &:hover {
         transform: scale(105%);
       }
 
       & > a {
         text-decoration: none;
-        font-size: 2rem;
+        font-size: 2.4rem;
         color: var(--gray-primary);
       }
     }
