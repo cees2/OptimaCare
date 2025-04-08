@@ -16,6 +16,7 @@ html {
   font-size: 62.5%;
   --color-primary: #008080;
   --color-primary-light: #339999;
+  --color-primary-light-2: #cce6e6;
   --color-primary-dark: #0b7676;
   --gray-primary: #2a2a2a;
   --gray-primary-light: #555555;
@@ -418,7 +419,8 @@ body {
   column-gap: 6.4rem;
   border-radius: var(--border-radius-medium);
   margin-bottom: 80rem;
-  border: 1px solid black;
+  background-image: linear-gradient(to bottom right, var(--color-primary-light-2), var(--color-primary-light));
+  min-height: 60rem;
 }
 .cta__img {
   object-fit: cover;
@@ -428,6 +430,7 @@ body {
 }
 .cta__nav-and-content {
   flex: 1 1 auto;
+  padding: 3.2rem 0 3.2rem 6.4rem;
 }
 .cta__item {
   display: none;
@@ -662,7 +665,7 @@ body {
   border-radius: var(--border-radius-small);
   outline: none;
   font-size: 1.4rem;
-  color: color-mix(in srgb, var(--gray-primary) 70%, transparent);
+  color: color-mix(in srgb, var(--gray-primary) 75%, transparent);
 }
 .form__input {
   border: 1px solid color-mix(in srgb, var(--gray-primary) 40%, transparent);
@@ -682,20 +685,21 @@ body {
 .form__input:focus::placeholder {
   visibility: hidden;
 }
-.form__fieldset {
-  border: none;
-  display: flex;
-  flex-direction: column;
-}
-.form__legend {
-  margin: 0.8rem 0 1.6rem;
-}
 .form__radio-input {
   margin-right: 0.8rem;
 }
 .form__textarea {
   resize: none;
   font-family: inherit;
+}
+.form__btn--grid {
+  grid-column: 1/span 2;
+}
+
+@media (max-width: 50rem) {
+  .form__btn--grid {
+    grid-column: 1/2;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

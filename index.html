@@ -697,51 +697,9 @@
                   <option value="mental_health">Mental Health</option>
                   <option value="supplements">Supplements</option>
                   <option value="physical_therapy">Physical Therapy</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
-              <fieldset class="form__fieldset">
-                <legend class="form__legend">
-                  Choose your preferred contact method
-                </legend>
-                <div class="form__item">
-                  <input
-                    type="radio"
-                    class="form__radio-input"
-                    id="services-details-email-radio"
-                    name="contact"
-                    value="email_radio"
-                  />
-                  <label for="services-details-email-radio" class="form__label"
-                    >Email</label
-                  >
-                </div>
-                <div class="form__item">
-                  <input
-                    type="radio"
-                    class="form__radio-input"
-                    id="services-details-phone-radio"
-                    name="contact"
-                    value="email_radio"
-                  />
-                  <label for="services-details-phone-radio" class="form__label"
-                    >Phone</label
-                  >
-                </div>
-                <div class="form__item">
-                  <input
-                    type="radio"
-                    class="form__radio-input"
-                    id="services-details-no-preference"
-                    name="contact"
-                    value="email_radio"
-                  />
-                  <label
-                    for="services-details-no-preference"
-                    class="form__label"
-                    >No preference</label
-                  >
-                </div>
-              </fieldset>
               <div class="form__item">
                 <label for="message" class="form__label">Message</label>
                 <textarea
@@ -751,7 +709,7 @@
                   rows="4"
                 ></textarea>
               </div>
-              <button class="btn">Send &rarr;</button>
+              <button class="btn form__btn--grid">Send &rarr;</button>
             </form>
           </div>
           <div class="cta__item">
@@ -815,9 +773,10 @@
                 <label
                   for="appointment-time-slot"
                   class="form__label form__label--visible"
-                  >Area of interest</label
+                  >Preferred time slot</label
                 >
               </div>
+              <button class="btn form__btn--grid">Send &rarr;</button>
             </form>
           </div>
         </div>

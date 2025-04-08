@@ -4,7 +4,12 @@
   column-gap: 6.4rem;
   border-radius: var(--border-radius-medium);
   margin-bottom: 80rem;
-  border: 1px solid black;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-primary-light-2),
+    var(--color-primary-light)
+  );
+  min-height: 60rem;
 
   &__img {
     object-fit: cover;
@@ -15,6 +20,7 @@
 
   &__nav-and-content {
     flex: 1 1 auto;
+    padding: 3.2rem 0 3.2rem 6.4rem;
   }
 
   &__item {
