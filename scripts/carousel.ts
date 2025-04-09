@@ -14,8 +14,6 @@ interface CarouselElements {
   navigationItems?: NodeListOf<HTMLDivElement>;
 }
 
-let activeCarouselElement: number = 0;
-
 const getCarouselParts = (carouselBox: HTMLDivElement): CarouselElements => {
   const carouselLeftArrow: HTMLElement | null = carouselBox.querySelector(
     ".carousel__arrow--left"
@@ -51,7 +49,8 @@ const getCarouselParts = (carouselBox: HTMLDivElement): CarouselElements => {
 const translateCarousel = (
   carouselItemsContainer: HTMLDivElement,
   previousActiveCarouselItem: HTMLDivElement,
-  currentActiveCarouselItem: Element
+  currentActiveCarouselItem: Element,
+  activeCarouselElement: number
 ) => {
   carouselItemsContainer.style.transform = `translateX(-${
     activeCarouselElement * 100
@@ -74,8 +73,8 @@ const toggleNavigationItem = (
 const carouselNavigationClickHandler = (
   event: MouseEvent,
   carousel: HTMLDivElement
-) => {
-  if (!event || !(event.target instanceof HTMLDivElement)) return;
+): number => {
+  if (!event || !(event.target instanceof HTMLDivElement)) return 0;
 
   const clickedNavItem: HTMLDivElement | null = event.target.closest(
     ".carousel__navigation-item"
@@ -94,12 +93,13 @@ const carouselNavigationClickHandler = (
     !carouselNavigationContainer ||
     !carouselItemsContainer
   )
-    return;
+    return 0;
 
   const navContainerChildrenArray = Array.from(
     carouselNavigationContainer.children
   );
-  activeCarouselElement = navContainerChildrenArray.indexOf(clickedNavItem);
+  const activeCarouselElement =
+    navContainerChildrenArray.indexOf(clickedNavItem);
   const currentActiveCarouselItem =
     carouselItemsContainer.children[activeCarouselElement];
 
@@ -108,11 +108,17 @@ const carouselNavigationClickHandler = (
   translateCarousel(
     carouselItemsContainer,
     previousActiveCarouselItem,
-    currentActiveCarouselItem
+    currentActiveCarouselItem,
+    activeCarouselElement
   );
+
+  return activeCarouselElement;
 };
 
-const carouselArrowClickHandler = (carousel: HTMLDivElement) => {
+const carouselArrowClickHandler = (
+  carousel: HTMLDivElement,
+  activeCarouselElement: number
+) => {
   const {
     carouselItemsContainer,
     carouselActiveNavItem: previousCarouselActiveNavItem,
@@ -129,14 +135,16 @@ const carouselArrowClickHandler = (carousel: HTMLDivElement) => {
   if (
     !carouselItemsContainer ||
     !previousCarouselActiveNavItem ||
-    !currentActiveCarouselItem || !previousCarouselActiveItem
+    !currentActiveCarouselItem ||
+    !previousCarouselActiveItem
   )
     return;
 
   translateCarousel(
     carouselItemsContainer,
     previousCarouselActiveItem,
-    currentActiveCarouselItem
+    currentActiveCarouselItem,
+    activeCarouselElement
   );
 
   toggleNavigationItem(
@@ -163,6 +171,7 @@ const carouselHandler = () => {
       carouselRightArrow,
       carouselNavigationContainer,
     } = getCarouselParts(carousel);
+    let activeCarouselElement: number = 0;
 
     if (
       !carouselItemsContainer ||
@@ -184,17 +193,22 @@ const carouselHandler = () => {
     carouselLeftArrow.addEventListener("click", () => {
       activeCarouselElement--;
       if (activeCarouselElement < 0) activeCarouselElement = numberOfItems - 1;
-      carouselArrowClickHandler(carousel);
+      carouselArrowClickHandler(carousel, activeCarouselElement);
     });
 
     carouselRightArrow.addEventListener("click", () => {
       activeCarouselElement++;
       if (activeCarouselElement === numberOfItems) activeCarouselElement = 0;
-      carouselArrowClickHandler(carousel);
+      carouselArrowClickHandler(carousel, activeCarouselElement);
     });
 
-    carouselNavigationContainer.addEventListener("click", (event: MouseEvent) =>
-      carouselNavigationClickHandler(event, carousel)
+    carouselNavigationContainer.addEventListener(
+      "click",
+      (event: MouseEvent) =>
+        (activeCarouselElement = carouselNavigationClickHandler(
+          event,
+          carousel
+        ))
     );
   });
 };
