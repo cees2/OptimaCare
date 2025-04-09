@@ -12,6 +12,7 @@
     "scripts/servicesSection.ts",
     "scripts/carousel.ts",
     "scripts/navigation.ts",
-    "scripts/cta.ts"
+    "scripts/cta.ts",
+    "scripts/modal.ts"
   ]
 }

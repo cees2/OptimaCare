@@ -12,6 +12,7 @@
     <script defer src="dist/carousel.js"></script>
     <script defer src="dist/navigation.js"></script>
     <script defer src="dist/cta.js"></script>
+    <script defer src="dist/modal.js"></script>
     <title>OptimaCare</title>
   </head>
   <body>
@@ -45,9 +46,14 @@
             because your health matters.
           </p>
           <div class="hero__buttons">
-            <a href="#" class="btn">Services</a>
-            <button href="#" class="btn btn--light">Send us an email</button>
-            <button href="#" class="btn btn--light">Set an appointment</button>
+            <a href="#services" class="btn">Services</a>
+            <button
+              href="#"
+              class="btn btn--light"
+              data-dropdown-trigger-id="free-quote-modal"
+            >
+              Get a Free Quote
+            </button>
           </div>
           <div class="hero__patients">
             <div class="hero__patients-imgs">
@@ -851,7 +857,7 @@
         </ul>
       </div>
     </footer>
-    <div class="modal">
+    <div class="modal" id="free-quote-modal">
       <div class="modal__window">
         <div class="modal__header">
           <svg
