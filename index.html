@@ -52,7 +52,7 @@
               class="btn btn--light"
               data-dropdown-trigger-id="free-quote-modal"
             >
-              Get a Free Quote
+              Get a free quote
             </button>
           </div>
           <div class="hero__patients">
@@ -380,8 +380,8 @@
         </div>
       </section>
       <section class="pricing content">
-        <h4 class="subheading">Pricing</h4>
         <div class="pricing__card">
+          <h4 class="subheading">Pricing</h4>
           <h4 class="pricing__title">Basic Care Plan</h4>
           <div class="pricing__top-text">
             <span class="pricing__price">€49</span>
@@ -857,6 +857,34 @@
         </ul>
       </div>
     </footer>
+    <div class="modal active" id="disclaimer-modal">
+      <div class="modal__window">
+        <div class="modal__header">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="{1.5}"
+            stroke="currentColor"
+            className="size-6"
+            class="modal__close-icon"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+          <h2 class="modal__title">Disclaimer</h2>
+          <p class="modal__title-description">
+            This website is a portfolio project to demonstrate my frontend
+            skills. It does not represent a real healthcare provider. Some
+            content, services, or prices may be fictional or intentionally silly
+            for demonstration purposes.
+          </p>
+        </div>
+      </div>
+    </div>
     <div class="modal" id="free-quote-modal">
       <div class="modal__window">
         <div class="modal__header">
@@ -875,13 +903,64 @@
               d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
             />
           </svg>
-          <h2 class="modal__title">Send us an email</h2>
+          <h2 class="modal__title">Estimate Your Healthcare Costs</h2>
+          <p class="modal__title-description">
+            Just tell us a bit about what you’re looking for, and we’ll prepare
+            a personalized quote—no pressure, no hidden costs. It only takes a
+            minute!
+          </p>
         </div>
-        <div class="modal__body"></div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, ad
-        doloremque vitae corrupti voluptas perspiciatis minus error veritatis
-        totam autem? Voluptatem soluta laudantium porro fugiat quisquam minima
-        vitae itaque aliquid?
+        <div class="modal__body">
+          <form action="#" class="form form__grid">
+            <div class="form__item">
+              <input class="form__input" id="modal-city" placeholder="City" />
+              <label for="modal-city" class="form__label form__label--movable"
+                >City</label
+              >
+            </div>
+            <div class="form__item">
+              <input
+                type="number"
+                class="form__input"
+                id="modal-number-of-sessions"
+                placeholder="Number of sessions"
+                max="20"
+              />
+              <label
+                for="modal-number-of-sessions"
+                class="form__label form__label--movable"
+                >Number of sessions</label
+              >
+            </div>
+            <div class="form__item">
+              <input
+                class="form__input"
+                id="modal-insurance-provider"
+                placeholder="Insurance provider"
+              />
+              <label
+                for="modal-insurance-provider"
+                class="form__label form__label--movable"
+                >Insurance provider</label
+              >
+            </div>
+            <div class="form__item">
+              <input
+                class="form__input"
+                id="modal-number-of-people"
+                placeholder="Number of people"
+                type="number"
+                max="20"
+              />
+              <label
+                for="modal-number-of-people"
+                class="form__label form__label--movable"
+                >Number of people</label
+              >
+            </div>
+            <button class="btn form__btn--grid btn--light">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   </body>

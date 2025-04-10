@@ -49,10 +49,6 @@
     border-bottom: 3px solid
       color-mix(in srgb, var(--gray-primary) 40%, transparent);
 
-    &:focus:invalid {
-      border-bottom: 3px solid red;
-    }
-
     &:focus,
     &:not(:placeholder-shown) {
       border-bottom: 3px solid var(--gray-primary);
