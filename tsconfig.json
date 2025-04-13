@@ -13,6 +13,7 @@
     "scripts/carousel.ts",
     "scripts/navigation.ts",
     "scripts/cta.ts",
-    "scripts/modal.ts"
+    "scripts/modal.ts",
+    "scripts/formHandlers.ts"
   ]
 }

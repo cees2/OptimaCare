@@ -79,6 +79,16 @@
       grid-column: 1 / span 2;
     }
   }
+
+  &__error-text {
+    color: red;
+    font-size: 2rem;
+  }
+
+  &__result-text {
+    font-size: var(--font-weight-semi-bold);
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 50rem) {

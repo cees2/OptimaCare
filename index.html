@@ -13,6 +13,7 @@
     <script defer src="dist/navigation.js"></script>
     <script defer src="dist/cta.js"></script>
     <script defer src="dist/modal.js"></script>
+    <script defer src="dist/formHandlers.js"></script>
     <title>OptimaCare</title>
   </head>
   <body>
@@ -911,9 +912,14 @@
           </p>
         </div>
         <div class="modal__body">
-          <form action="#" class="form form__grid">
+          <form class="form form__grid" id="free-quote-form">
             <div class="form__item">
-              <input class="form__input" id="modal-city" placeholder="City" />
+              <input
+                class="form__input"
+                id="modal-city"
+                placeholder="City"
+                name="modal_city"
+              />
               <label for="modal-city" class="form__label form__label--movable"
                 >City</label
               >
@@ -925,6 +931,7 @@
                 id="modal-number-of-sessions"
                 placeholder="Number of sessions"
                 max="20"
+                name="modal_number_of_sessions"
               />
               <label
                 for="modal-number-of-sessions"
@@ -937,6 +944,7 @@
                 class="form__input"
                 id="modal-insurance-provider"
                 placeholder="Insurance provider"
+                name="modal_insurance_provider"
               />
               <label
                 for="modal-insurance-provider"
@@ -951,6 +959,7 @@
                 placeholder="Number of people"
                 type="number"
                 max="20"
+                name="modal_number_of_people"
               />
               <label
                 for="modal-number-of-people"
