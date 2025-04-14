@@ -776,6 +776,15 @@ body {
 .form__btn--grid {
   grid-column: 1/span 2;
 }
+.form__error-text {
+  color: red;
+  font-size: 2rem;
+}
+.form__result-text {
+  font-weight: var(--font-weight-semi-bold);
+  font-size: 2.2rem;
+  grid-column: 1/-1;
+}
 
 @media (max-width: 50rem) {
   .form__btn--grid {
