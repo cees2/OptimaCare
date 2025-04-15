@@ -5,18 +5,32 @@ const navigationClickHandler = (
   event: MouseEvent,
   navigation: HTMLUListElement
 ) => {
-  if (!event || !(event.target instanceof HTMLLIElement)) return;
+  if (
+    !event ||
+    (!(event.target instanceof HTMLLIElement) &&
+      !(event.target instanceof HTMLAnchorElement))
+  )
+    return;
 
   const previousActiveNavigationElement: HTMLLIElement | null =
     navigation.querySelector(".navigation__item--active");
 
-  if (!previousActiveNavigationElement) return;
-
-  previousActiveNavigationElement.classList.remove("navigation__item--active");
+  previousActiveNavigationElement?.classList.remove("navigation__item--active");
   event.target.classList.add("navigation__item--active");
 
   const hrefAttribute = event.target.getAttribute("href");
-  console.log(hrefAttribute);
+
+  if (
+    hrefAttribute &&
+    hrefAttribute.startsWith("#") &&
+    hrefAttribute.length > 1
+  ) {
+    const sectionToScroll: HTMLElement | null = document.querySelector(
+      `section${hrefAttribute}`
+    );
+
+    sectionToScroll?.scrollTo({ behavior: "smooth" });
+  }
 };
 
 navigations?.forEach((navigation) => {
