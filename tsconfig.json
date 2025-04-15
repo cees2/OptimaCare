@@ -14,6 +14,7 @@
     "scripts/navigation.ts",
     "scripts/cta.ts",
     "scripts/modal.ts",
-    "scripts/formHandlers.ts"
+    "scripts/formHandlers.ts",
+    "scripts/aboutUsSection.ts"
   ]
 }

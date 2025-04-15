@@ -99,6 +99,12 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 1.6rem 3.2rem;
+  background-color: #fff;
+}
+.header--sticky {
+  position: sticky;
+  top: 0;
+  z-index: 6;
 }
 .header__nav-list {
   list-style-type: none;
