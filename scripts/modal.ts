@@ -20,8 +20,12 @@ const modalTriggerHandler = (event: MouseEvent) => {
   )
     return;
 
-  const modalID = event.target.dataset.dropdownTriggerId;
-  const modalElement = document.getElementById(modalID);
+  const {
+    target: {
+      dataset: { dropdownTriggerId, modalTitle },
+    },
+  } = event;
+  const modalElement = document.getElementById(dropdownTriggerId);
   const modalCloseIcon: HTMLDivElement | undefined | null =
     modalElement?.querySelector(".modal__close-icon");
 
@@ -34,6 +38,13 @@ const modalTriggerHandler = (event: MouseEvent) => {
     () => closeModalHandler(modalElement),
     { once: true }
   );
+
+  const modalTitleElement: HTMLHeadingElement | null =
+    modalElement.querySelector(".modal__title");
+
+  if (modalTitleElement && modalTitle) {
+    modalTitleElement.textContent = modalTitle;
+  }
 };
 
 const addEventListenersToModalTriggers = () => {
@@ -46,17 +57,17 @@ const addEventListenersToModalTriggers = () => {
 };
 
 const addEventListenersToDisclaimerModal = () => {
-  const displaimerModal: HTMLDivElement | null =
+  const disclaimerModal: HTMLDivElement | null =
     document.querySelector("#disclaimer-modal");
   const modalCloseIcon: HTMLDivElement | undefined | null =
-    displaimerModal?.querySelector(".modal__close-icon");
+    disclaimerModal?.querySelector(".modal__close-icon");
 
-  if (!displaimerModal || !modalCloseIcon) return;
+  if (!disclaimerModal || !modalCloseIcon) return;
 
-  displaimerModal?.addEventListener("click", modalClickHandler);
+  disclaimerModal?.addEventListener("click", modalClickHandler);
   modalCloseIcon?.addEventListener(
     "click",
-    () => closeModalHandler(displaimerModal),
+    () => closeModalHandler(disclaimerModal),
     { once: true }
   );
 };

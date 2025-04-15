@@ -14,6 +14,9 @@ const navigationClickHandler = (
 
   previousActiveNavigationElement.classList.remove("navigation__item--active");
   event.target.classList.add("navigation__item--active");
+
+  const hrefAttribute = event.target.getAttribute("href");
+  console.log(hrefAttribute);
 };
 
 navigations?.forEach((navigation) => {

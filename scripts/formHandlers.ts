@@ -1,3 +1,26 @@
+const getFieldEmpty = (
+  iterator: FormDataIterator<[string, FormDataEntryValue]>
+): boolean => {
+  for (const entry of iterator) {
+    const [entryName, entryValue] = entry;
+
+    if (!entryValue) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const insertToAFormErrorMessage = (
+  form: HTMLFormElement,
+  insertBeforeElement: HTMLElement
+) => {
+  const emptyFieldDiv = document.createElement("div");
+  emptyFieldDiv.textContent = "Please fill every input";
+  emptyFieldDiv.classList.add("form__error-text");
+  form.insertBefore(emptyFieldDiv, insertBeforeElement);
+};
+
 const freeQuoteFormSubmitHandler = (
   event: SubmitEvent,
   isDirtyAfterSubmit: boolean
@@ -20,22 +43,10 @@ const freeQuoteFormSubmitHandler = (
   if (!freeQuoteModalSubmitButton) return;
 
   const formData = new FormData(event.target);
-  let fieldEmpty: boolean = false;
-
-  for (const entry of formData.entries()) {
-    const [entryName, entryValue] = entry;
-
-    if (!entryValue) {
-      fieldEmpty = true;
-      break;
-    }
-  }
+  const fieldEmpty = getFieldEmpty(formData.entries());
 
   if (fieldEmpty && !errorAlreadyOccurred) {
-    const emptyFieldDiv = document.createElement("div");
-    emptyFieldDiv.textContent = "Please fill every input";
-    emptyFieldDiv.classList.add("form__error-text");
-    event.target.insertBefore(emptyFieldDiv, freeQuoteModalSubmitButton);
+    insertToAFormErrorMessage(event.target, freeQuoteModalSubmitButton);
 
     if (estimatePriceElement) {
       event.target.removeChild(estimatePriceElement);
@@ -63,6 +74,22 @@ const freeQuoteFormSubmitHandler = (
   }
 };
 
+const pricingFormSubmitHandler = (event: SubmitEvent) => {
+  if (!(event.target instanceof HTMLFormElement)) return;
+
+  const formData = new FormData(event.target);
+  const fieldEmpty = getFieldEmpty(formData.entries());
+
+  const pricingFormSubmitButton: HTMLButtonElement | null =
+    event.target.querySelector("button");
+
+  if (!pricingFormSubmitButton) return;
+
+  if (fieldEmpty) {
+    insertToAFormErrorMessage(event.target, pricingFormSubmitButton);
+  }
+};
+
 const freeQuoteFormHandler = () => {
   const form: HTMLFormElement | null =
     document.querySelector("#free-quote-form");
@@ -82,4 +109,12 @@ const freeQuoteFormHandler = () => {
   });
 };
 
+const pricingFormHandler = () => {
+  const form: HTMLFormElement | null = document.querySelector("#pricing-form");
+  if (!form) return;
+
+  form.addEventListener("submit", pricingFormSubmitHandler);
+};
+
 freeQuoteFormHandler();
+pricingFormHandler();

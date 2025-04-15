@@ -434,7 +434,13 @@
               24/7 medical support hotline
             </li>
           </ul>
-          <button class="btn pricing__button">Try it now</button>
+          <button
+            class="btn pricing__button"
+            data-dropdown-trigger-id="pricing-modal"
+            data-modal-title="Basic care plan"
+          >
+            Try it now
+          </button>
         </div>
         <div class="pricing__card">
           <h4 class="pricing__title">Business Health Plan</h4>
@@ -487,7 +493,13 @@
               Dedicated corporate support
             </li>
           </ul>
-          <button class="btn pricing__button">Try it now</button>
+          <button
+            class="btn pricing__button"
+            data-dropdown-trigger-id="pricing-modal"
+            data-modal-title="Business Health Plan"
+          >
+            Try it now
+          </button>
         </div>
         <div class="pricing__card pricing__card--best">
           <span class="pricing__best-value">Best value</span>
@@ -540,7 +552,13 @@
               Personalized treatment & wellness strategies
             </li>
           </ul>
-          <button class="btn pricing__button">Try it now</button>
+          <button
+            class="btn pricing__button"
+            data-dropdown-trigger-id="pricing-modal"
+            data-modal-title="Executive Care Plan"
+          >
+            Try it now
+          </button>
         </div>
       </section>
       <section class="testimonials content">
@@ -655,7 +673,7 @@
               instructions during the appointment. Our tech support will also be
               happy to help.
             </p>
-            <form class="form form__grid" action="#">
+            <form class="form form__grid">
               <div class="form__item">
                 <input
                   class="form__input"
@@ -965,6 +983,82 @@
                 for="modal-number-of-people"
                 class="form__label form__label--movable"
                 >Number of people</label
+              >
+            </div>
+            <button class="btn form__btn--grid btn--light">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="pricing-modal">
+      <div class="modal__window">
+        <div class="modal__header">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="{1.5}"
+            stroke="currentColor"
+            className="size-6"
+            class="modal__close-icon"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+          <div class="modal__title"></div>
+          <p class="modal__title-description">
+            We are excited that you’ve chosen us as your healthcare provider.
+            Please fill out the form below. After submitting the form, you will
+            be redirected to a payment page and will receive a confirmation
+            email.
+          </p>
+        </div>
+        <div class="modal__body">
+          <form class="form__grid">
+            <div class="form__item">
+              <input class="form__input" id="pricing-name" placeholder="Name" />
+              <label for="pricing-name" class="form__label form__label--movable"
+                >Name</label
+              >
+            </div>
+            <div class="form__item">
+              <input
+                class="form__input"
+                id="pricing-surname"
+                placeholder="Surname"
+              />
+              <label
+                for="pricing-surname"
+                class="form__label form__label--movable"
+                >Surname</label
+              >
+            </div>
+            <div class="form__item">
+              <input
+                type="email"
+                class="form__input"
+                id="pricing-email"
+                placeholder="Email"
+              />
+              <label
+                for="pricing-email"
+                class="form__label form__label--movable"
+                >Email</label
+              >
+            </div>
+            <div class="form__item">
+              <input
+                class="form__input"
+                id="pricing-company"
+                placeholder="Company name"
+              />
+              <label
+                for="pricing-company"
+                class="form__label form__label--movable"
+                >Company name</label
               >
             </div>
             <button class="btn form__btn--grid btn--light">Submit</button>
