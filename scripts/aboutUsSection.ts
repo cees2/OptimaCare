@@ -3,8 +3,6 @@ const handleStickyNavOnAboutUsSecitonScroll = (): void => {
     document.querySelector("section.hero");
   const header: HTMLElement | null = document.querySelector("header.header");
 
-  console.log(heroSection);
-
   if (!heroSection || !header) return;
 
   const intersectionHandler = (
@@ -12,8 +10,6 @@ const handleStickyNavOnAboutUsSecitonScroll = (): void => {
     observer: IntersectionObserver
   ) => {
     const [entry] = entries;
-
-    console.log(entry);
 
     if (!entry.isIntersecting) {
       header.classList.add("header--sticky");

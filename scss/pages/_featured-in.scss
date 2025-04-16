@@ -1,3 +1,5 @@
+@import "../abstracts/queries";
+
 .featured-in {
   display: flex;
   column-gap: 6.4rem;
@@ -32,5 +34,14 @@
     filter: grayscale(100%) opacity(40%);
     margin-bottom: 2.4rem;
     transition: all var(--transition-duration-slow);
+  }
+
+  @include respondMaxWidth($breakpoint-lg) {
+    flex-direction: column;
+    row-gap: 3.2rem;
+
+    &__text {
+      text-align: center;
+    }
   }
 }

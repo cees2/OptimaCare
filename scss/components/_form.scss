@@ -1,9 +1,15 @@
+@import "../abstracts/queries";
+
 .form {
   &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     column-gap: 6.4rem;
     row-gap: 3.2rem;
+
+    @include respondMaxWidth($breakpoint-lg) {
+      column-gap: 3.2rem;
+    }
   }
 
   &__item {

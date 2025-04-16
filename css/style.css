@@ -204,6 +204,11 @@ body {
   max-width: 114rem;
   margin: 0 auto;
 }
+@media only screen and (max-width: 71em) {
+  .main {
+    padding: 0 1.6rem;
+  }
+}
 
 .about-us {
   display: flex;
@@ -278,6 +283,15 @@ body {
   filter: grayscale(100%) opacity(40%);
   margin-bottom: 2.4rem;
   transition: all var(--transition-duration-slow);
+}
+@media only screen and (max-width: 71em) {
+  .featured-in {
+    flex-direction: column;
+    row-gap: 3.2rem;
+  }
+  .featured-in__text {
+    text-align: center;
+  }
 }
 
 .services {
@@ -380,6 +394,7 @@ body {
   display: flex;
   align-items: center;
   column-gap: 1.2rem;
+  align-items: flex-start;
 }
 .pricing__list-item:not(:last-child) {
   margin-bottom: 1.6rem;
@@ -387,6 +402,7 @@ body {
 .pricing__icon {
   height: 1.6rem;
   stroke: var(--color-primary);
+  margin-top: 0.5rem;
 }
 .pricing__button {
   width: 100%;
@@ -648,6 +664,11 @@ body {
   align-items: center;
   transition: all var(--transition-duration-default);
 }
+@media only screen and (max-width: 71em) {
+  .modal {
+    padding: 0 1.6rem;
+  }
+}
 .modal.active {
   opacity: 1;
   visibility: visible;
@@ -729,6 +750,11 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   column-gap: 6.4rem;
   row-gap: 3.2rem;
+}
+@media only screen and (max-width: 71em) {
+  .form__grid {
+    column-gap: 3.2rem;
+  }
 }
 .form__item {
   position: relative;
