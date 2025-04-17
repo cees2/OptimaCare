@@ -1,4 +1,5 @@
-$breakpoint-lg: 71em; // 1136px
+$breakpoint-lg-2: 71em; // 1136px
+$breakpoint-lg-1: 62.5em; // 1000px
 
 @mixin respondMaxWidth($breakpoint) {
   @media only screen and (max-width: $breakpoint) {

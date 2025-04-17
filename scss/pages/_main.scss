@@ -4,7 +4,7 @@
   max-width: 114rem;
   margin: 0 auto;
 
-  @include respondMaxWidth($breakpoint-lg) {
+  @include respondMaxWidth($breakpoint-lg-2) {
     padding: 0 1.6rem;
   }
 }

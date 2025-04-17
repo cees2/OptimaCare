@@ -1,10 +1,20 @@
+@import "../abstracts/queries";
+
 .about-us {
   display: flex;
   column-gap: 4.8rem;
 
+  @include respondMaxWidth($breakpoint-lg-1) {
+    column-gap: 1.6rem;
+  }
+
   &__images {
     flex: 0 0 40%;
     position: relative;
+
+    @include respondMaxWidth($breakpoint-lg-1) {
+      flex: 0 0 45%;
+    }
   }
 
   &__content {
@@ -26,12 +36,25 @@
       top: 3rem;
       right: 1rem;
       z-index: 2;
+
+      @include respondMaxWidth($breakpoint-lg-1) {
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:hover {
+          transform: translateY(-50%) scale(120%) !important;
+        }
+      }
     }
 
     &--3 {
       bottom: 0;
       left: 20%;
       z-index: 3;
+
+      @include respondMaxWidth($breakpoint-lg-1) {
+        bottom: 3rem;
+      }
     }
 
     &:hover {

@@ -1,7 +1,12 @@
 @import "../abstracts/mixins";
+@import "../abstracts/queries";
 
 .hero {
   display: flex;
+
+  @include respondMaxWidth($breakpoint-lg-1) {
+    flex-direction: column;
+  }
 
   &__title {
     @include move-text-horizontally("from-right", -5rem, 2rem);
@@ -10,6 +15,10 @@
   &__content {
     flex: 1;
     padding: 3.2rem;
+
+    @include respondMaxWidth($breakpoint-lg-1) {
+      padding: 0;
+    }
   }
 
   &__img {
@@ -20,6 +29,10 @@
 
     &__image {
       width: 100%;
+
+      @include respondMaxWidth($breakpoint-lg-1) {
+        width: 60%;
+      }
     }
   }
 

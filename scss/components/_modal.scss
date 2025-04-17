@@ -15,7 +15,7 @@
   align-items: center;
   transition: all var(--transition-duration-default);
 
-  @include respondMaxWidth($breakpoint-lg) {
+  @include respondMaxWidth($breakpoint-lg-2) {
     padding: 0 1.6rem;
   }
 
