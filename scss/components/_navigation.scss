@@ -6,7 +6,9 @@
 .navigation {
   list-style-type: none;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 2.4rem;
+  row-gap: 0.8rem;
   align-items: center;
 
   &__item {
@@ -26,7 +28,6 @@
 
     > a {
       text-decoration: none;
-      
     }
   }
 }
