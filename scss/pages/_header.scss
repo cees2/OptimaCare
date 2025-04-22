@@ -77,6 +77,10 @@
     width: 4.4rem;
     height: 4.4rem;
     fill: #fff;
+
+    &:hover{
+      cursor: pointer
+    }
   }
 
   &__hamburger-menu-active &__left-arrow {
@@ -85,6 +89,10 @@
 
   &__hamburger-menu-icon {
     display: none;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     @include respondMaxWidth($breakpoint-lg-1) {
       display: block;

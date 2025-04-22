@@ -36,6 +36,11 @@ html {
   --animation-duration-default: 400ms;
   --animation-duration-slow: 600ms;
 }
+@media only screen and (max-width: 50em) {
+  html {
+    font-size: 50%;
+  }
+}
 
 body {
   font-weight: 400;
@@ -165,11 +170,17 @@ body {
   height: 4.4rem;
   fill: #fff;
 }
+.header__left-arrow:hover {
+  cursor: pointer;
+}
 .header__hamburger-menu-active .header__left-arrow {
   display: block;
 }
 .header__hamburger-menu-icon {
   display: none;
+}
+.header__hamburger-menu-icon:hover {
+  cursor: pointer;
 }
 @media only screen and (max-width: 62.5em) {
   .header__hamburger-menu-icon {
@@ -329,6 +340,12 @@ body {
   }
   .about-us__image--2:hover {
     transform: translateY(-50%) scale(120%) !important;
+  }
+}
+@media only screen and (max-width: 50em) {
+  .about-us__image--2 {
+    top: 20%;
+    transform: translateY(0);
   }
 }
 .about-us__image--3 {
@@ -623,6 +640,7 @@ body {
   display: grid;
   grid-template-columns: minmax(20rem, 25rem) repeat(auto-fit, minmax(18rem, 1fr));
   column-gap: 1.6rem;
+  row-gap: 4.8rem;
 }
 .footer__item {
   display: flex;
@@ -866,7 +884,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   column-gap: 2.4rem;
-  row-gap: 0.8rem;
+  row-gap: 1.6rem;
   align-items: center;
 }
 .navigation__item {
