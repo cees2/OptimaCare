@@ -17,6 +17,12 @@
     z-index: 6;
   }
 
+  @include respondMaxWidth($breakpoint-sm-1) {
+    &__logo {
+      width: 40%;
+    }
+  }
+
   &__nav-list {
     list-style-type: none;
     display: flex;
@@ -40,10 +46,8 @@
       transform: translateX(100%);
       transition: all var(--transition-duration-slow);
 
-      & > li {
-        & > a {
-          color: #fff !important;
-        }
+      & > li > a {
+        color: #fff !important;
       }
     }
 
@@ -78,8 +82,8 @@
     height: 4.4rem;
     fill: #fff;
 
-    &:hover{
-      cursor: pointer
+    &:hover {
+      cursor: pointer;
     }
   }
 

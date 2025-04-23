@@ -117,6 +117,11 @@ body {
   top: 0;
   z-index: 6;
 }
+@media only screen and (max-width: 28em) {
+  .header__logo {
+    width: 40%;
+  }
+}
 .header__nav-list {
   list-style-type: none;
   display: flex;
@@ -233,6 +238,16 @@ body {
     width: 60%;
   }
 }
+@media only screen and (max-width: 37.5em) {
+  .hero__img__image {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 28em) {
+  .hero__img__image {
+    width: 100%;
+  }
+}
 .hero__description {
   margin-top: 6.4rem;
   font-size: 2.4rem;
@@ -296,6 +311,11 @@ body {
     padding: 0 1.6rem;
   }
 }
+@media only screen and (max-width: 28em) {
+  .main {
+    padding: 0.8rem;
+  }
+}
 
 .about-us {
   display: flex;
@@ -356,7 +376,7 @@ body {
 }
 @media only screen and (max-width: 50em) {
   .about-us__image--2 {
-    top: 25%;
+    top: 20%;
     transform: translateY(0);
   }
 }
@@ -388,10 +408,30 @@ body {
     border-radius: 0;
   }
 }
+@media only screen and (max-width: 50em) {
+  .about-us__image {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .about-us__image {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 28em) {
+  .about-us__image {
+    width: 100%;
+  }
+}
 .about-us__description {
   margin-top: 2.4rem;
   color: var(--gray-primary);
   font-size: 1.8rem;
+}
+@media only screen and (max-width: 50em) {
+  .about-us__description {
+    font-size: 2rem;
+  }
 }
 
 .featured-in {
@@ -482,6 +522,7 @@ body {
     text-align: center;
     width: 6.2rem;
     height: 6.2rem;
+    margin-bottom: 2.4rem;
   }
 }
 .services__heading {
@@ -730,6 +771,11 @@ body {
 @media only screen and (max-width: 71em) {
   .footer {
     padding: 0 1.6rem;
+  }
+}
+@media only screen and (max-width: 28em) {
+  .footer {
+    padding: 0.8rem;
   }
 }
 .footer__item {
