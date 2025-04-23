@@ -370,8 +370,7 @@ body {
 }
 @media only screen and (max-width: 62.5em) {
   .about-us__image--2 {
-    top: 50%;
-    transform: translateY(-50%);
+    top: 25%;
   }
 }
 @media only screen and (max-width: 50em) {
@@ -1034,6 +1033,7 @@ body {
 .navigation__item--active, .navigation__item:hover {
   color: var(--color-primary-dark);
   border-bottom: 3px solid var(--color-primary-dark);
+  padding-bottom: calc(1.2rem - 3px) !important;
 }
 
 .navigation {
@@ -1049,11 +1049,7 @@ body {
   transition: all var(--transition-duration-default);
 }
 .navigation__item:hover {
-  padding-bottom: calc(1.2rem - 3px);
   cursor: pointer;
-}
-.navigation__item--active {
-  padding-bottom: calc(1.2rem - 3px);
 }
 .navigation__item > a {
   text-decoration: none;

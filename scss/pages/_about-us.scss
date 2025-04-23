@@ -51,8 +51,7 @@
       z-index: 2;
 
       @include respondMaxWidth($breakpoint-lg-1) {
-        top: 50%;
-        transform: translateY(-50%);
+        top: 25%;
       }
 
       @include respondMaxWidth($breakpoint-md-2) {

@@ -1,6 +1,7 @@
 %nav-item-action {
   color: var(--color-primary-dark);
   border-bottom: 3px solid var(--color-primary-dark);
+  padding-bottom: calc(1.2rem - 3px) !important;
 }
 
 .navigation {
@@ -17,13 +18,11 @@
 
     &:hover {
       @extend %nav-item-action;
-      padding-bottom: calc(1.2rem - 3px);
       cursor: pointer;
     }
 
     &--active {
       @extend %nav-item-action;
-      padding-bottom: calc(1.2rem - 3px);
     }
 
     > a {
