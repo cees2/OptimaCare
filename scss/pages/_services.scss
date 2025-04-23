@@ -1,3 +1,5 @@
+@import "../abstracts/queries";
+
 .services {
   background-color: var(--color-primary-light-2);
   padding: 4.8rem;
@@ -13,12 +15,17 @@
 
     &.services__content--active {
       display: grid;
-      grid-template-columns: min-content 1fr;
+      grid-template-columns: min-content minmax(40rem, 1fr);
       column-gap: 3.2rem;
       row-gap: 1.6rem;
       align-items: center;
       transform: translateY(0);
       opacity: 1;
+
+      @include respondMaxWidth($breakpoint-md-1) {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
     }
   }
 
@@ -29,11 +36,23 @@
     padding: 1.6rem;
     grid-area: 1 / 1 / 1 / 1;
     fill: var(--color-primary-light);
+
+    @include respondMaxWidth($breakpoint-md-1) {
+      grid-column: 1 / -1;
+      text-align: center;
+      width: 6.2rem;
+      height: 6.2rem;
+    }
   }
 
   &__heading {
     grid-column: 2 / 3;
     color: var(--gray-primary);
+
+    @include respondMaxWidth($breakpoint-md-1) {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+    }
   }
 
   &__description {
@@ -42,5 +61,10 @@
     color: var(--gray-primary-light);
     opacity: 0.8;
     padding-right: 3.2rem;
+
+    @include respondMaxWidth($breakpoint-md-1) {
+      grid-column: 1 / -1;
+      grid-row: 3 / 4;
+    }
   }
 }

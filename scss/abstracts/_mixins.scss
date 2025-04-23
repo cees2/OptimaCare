@@ -35,9 +35,17 @@
 
   @if ($arrow-direction == "left") {
     left: 1rem;
+
+    @include respondMaxWidth($breakpoint-md-1) {
+      left: 0;
+    }
   }
 
   @if ($arrow-direction == "right") {
     right: 1rem;
+
+    @include respondMaxWidth($breakpoint-md-1) {
+      right: 0;
+    }
   }
 }

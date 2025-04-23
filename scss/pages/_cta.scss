@@ -17,11 +17,24 @@
     column-gap: 3.2rem;
   }
 
+  @include respondMaxWidth($breakpoint-md-1) {
+    flex-direction: column;
+  }
+
   &__img {
     object-fit: cover;
+    object-position: center;
     width: 30%;
     border-top-right-radius: var(--border-radius-medium);
     border-bottom-right-radius: var(--border-radius-medium);
+
+    @include respondMaxWidth($breakpoint-md-1) {
+      width: 100%;
+      height: 20vh;
+      order: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
   }
 
   &__nav-and-content {
@@ -30,6 +43,11 @@
 
     @include respondMaxWidth($breakpoint-lg-1) {
       padding: 3.2rem 0 3.2rem 3.2rem;
+    }
+
+    @include respondMaxWidth($breakpoint-md-1) {
+      padding: 3.2rem;
+      order: 1;
     }
   }
 

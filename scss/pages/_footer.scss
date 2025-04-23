@@ -1,3 +1,5 @@
+@import "../abstracts//queries";
+
 .footer {
   max-width: 114rem;
   margin: 0 auto;
@@ -8,6 +10,10 @@
     );
   column-gap: 1.6rem;
   row-gap: 4.8rem;
+
+  @include respondMaxWidth($breakpoint-lg-2) {
+    padding: 0 1.6rem;
+  }
 
   &__item {
     display: flex;

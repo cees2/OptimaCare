@@ -8,12 +8,25 @@
     column-gap: 1.6rem;
   }
 
+  @include respondMaxWidth($breakpoint-md-1) {
+    flex-direction: column;
+    row-gap: 6.4rem;
+  }
+
   &__images {
     flex: 0 0 40%;
     position: relative;
 
     @include respondMaxWidth($breakpoint-lg-1) {
       flex: 0 0 45%;
+    }
+
+    @include respondMaxWidth($breakpoint-md-1) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      row-gap: 4.8rem;
     }
   }
 
@@ -40,14 +53,10 @@
       @include respondMaxWidth($breakpoint-lg-1) {
         top: 50%;
         transform: translateY(-50%);
-
-        &:hover {
-          transform: translateY(-50%) scale(120%) !important;
-        }
       }
 
       @include respondMaxWidth($breakpoint-md-2) {
-        top: 20%;
+        top: 25%;
         transform: translateY(0);
       }
     }
@@ -68,6 +77,17 @@
       transform: scale(120%);
       padding: 0.8rem;
       border-radius: var(--border-radius-medium);
+    }
+
+    @include respondMaxWidth($breakpoint-md-1) {
+      position: static;
+
+      &:hover {
+        padding: 0;
+        transform: scale(1);
+        border: none;
+        border-radius: 0;
+      }
     }
   }
 

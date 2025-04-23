@@ -27,6 +27,11 @@
   &__items {
     display: flex;
     column-gap: 2.4rem;
+
+    @include respondMaxWidth($breakpoint-md-1) {
+      flex-direction: column;
+      row-gap: 3.2rem;
+    }
   }
 
   &__image {
