@@ -1102,16 +1102,19 @@ body {
   border: 1px solid color-mix(in srgb, var(--gray-primary) 40%, transparent);
   border-bottom: 3px solid color-mix(in srgb, var(--gray-primary) 40%, transparent);
 }
-.form__input:focus, .form__input:not(:placeholder-shown) {
+.form__input:focus {
   border-bottom: 3px solid var(--gray-primary);
 }
-.form__input:focus ~ .form__label--movable, .form__input:not(:placeholder-shown) ~ .form__label--movable {
+.form__input:focus ~ .form__label--movable {
   visibility: visible;
   opacity: 1;
   transform: translateY(-120%);
 }
-.form__input:focus:invalid, .form__input:not(:placeholder-shown):invalid {
+.form__input:focus:invalid {
   border-bottom: 3px solid red;
+}
+.form__input:focus::placeholder {
+  visibility: hidden;
 }
 .form__radio-input {
   margin-right: 0.8rem;
