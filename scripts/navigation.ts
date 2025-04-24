@@ -29,7 +29,14 @@ const navigationClickHandler = (
       `section${hrefAttribute}`
     );
 
-    sectionToScroll?.scrollTo({ behavior: "smooth" });
+    if (!sectionToScroll) return;
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: sectionToScroll.offsetTop - 130,
+        behavior: "smooth",
+      });
+    }, 2);
   }
 };
 
