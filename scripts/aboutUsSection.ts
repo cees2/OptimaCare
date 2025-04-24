@@ -5,10 +5,7 @@ const handleStickyNavOnAboutUsSecitonScroll = (): void => {
 
   if (!heroSection || !header) return;
 
-  const intersectionHandler = (
-    entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver
-  ) => {
+  const intersectionHandler = (entries: IntersectionObserverEntry[]) => {
     const [entry] = entries;
 
     if (!entry.isIntersecting) {
